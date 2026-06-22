@@ -1764,7 +1764,7 @@ VkSurfaceKHR VulkanDevice::GetSurfaceFromUser(VkInstance instance, const RgInsta
         wlInfo.display = info.pWaylandSurfaceCreateInfo->display;
         wlInfo.surface = info.pWaylandSurfaceCreateInfo->surface;
 
-        r = (instance, &wlInfo, nullptr, &surface);
+        r = vkCreateWaylandSurfaceKHR(instance, &wlInfo, nullptr, &surface);
         VK_CHECKERROR(r);
 
         return surface;
